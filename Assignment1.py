@@ -1,9 +1,13 @@
 # Libraries that use in the program.
 import time
+import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from openpyxl import load_workbook
 
+# Get the current date in the format of the sheet name
+current_date = datetime.datetime.now().strftime("%A")
+sheet_name = current_date
 
 # Initialize Chrome WebDriver
 chrome_options = webdriver.ChromeOptions()
@@ -13,7 +17,7 @@ driver = webdriver.Chrome(options=chrome_options)
 # Read keywords from the Excel file
 excel_file = "C:/Users/User/Desktop/Assgnment1Python/your_file.xlsx"
 wb = load_workbook(excel_file)
-sheet = wb.active
+sheet = wb[sheet_name]  # Access the sheet based on the current date
 
 # Loop through keywords and perform searches
 for row_num, row in enumerate(sheet.iter_rows(min_row=3, values_only=True, min_col=3, max_col=3), start=3):
