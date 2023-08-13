@@ -15,7 +15,7 @@ chrome_options.add_argument("--start-maximized")  # Maximize the browser window
 driver = webdriver.Chrome(options=chrome_options)
 
 # Read keywords from the Excel file
-excel_file = "C:/Users/User/Desktop/Assgnment1Python/your_file.xlsx"
+excel_file = "C:/Users/User/Desktop/Assignment1_Python/your_file.xlsx"
 wb = load_workbook(excel_file)
 sheet = wb[sheet_name]  # Access the sheet based on the current date
 
